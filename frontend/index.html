@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 MovieTicket - Book Your Favorite Movies</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-film"></i>
+                <span>MovieTicket</span>
+            </div>
+            <div class="nav-links">
+                <a href="#movies" class="active">Movies</a>
+                <a href="#bookings">My Bookings</a>
+                <a href="#about">About</a>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn-login" onclick="showLoginModal()">
+                    <i class="fas fa-user"></i> Login
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Book Your Favorite Movies</h1>
+            <p>Experience the magic of cinema with MovieTicket. Easy booking, best seats, amazing movies!</p>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search for movies..." onkeyup="searchMovies()">
+            </div>
+        </div>
+    </section>
+
+    <!-- Movies Section -->
+    <section class="movies-section" id="movies">
+        <div class="container">
+            <div class="section-header">
+                <h2>Now Showing</h2>
+                <div class="filters">
+                    <select id="genreFilter" onchange="filterMovies()">
+                        <option value="">All Genres</option>
+                        <option value="Action">Action</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Horror">Horror</option>
+                        <option value="Romance">Romance</option>
+                    </select>
+                    <select id="languageFilter" onchange="filterMovies()">
+                        <option value="">All Languages</option>
+                        <option value="English">English</option>
+                        <option value="Hindi">Hindi</option>
+                        <option value="Tamil">Tamil</option>
+                        <option value="Telugu">Telugu</option>
+                    </select>
+                </div>
+            </div>
+            <div class="movies-grid" id="moviesGrid">
+                <!-- Movies will be loaded here -->
+                <div class="loading">Loading amazing movies...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movie Detail Modal -->
+    <div id="movieModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-body" id="movieDetail">
+                <!-- Movie details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content booking-modal">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <div class="modal-body" id="bookingDetail">
+                <!-- Booking form will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content login-modal">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <div class="login-header">
+                <i class="fas fa-user-circle"></i>
+                <h2>Welcome Back!</h2>
+                <p>Login to book your tickets</p>
+            </div>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                mvn spring-boot:run    <input type="tel" id="phone" required placeholder="Enter your phone">
+                </div>
+                <button type="submit" class="btn-login-submit">Login / Register</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Toast -->
+    <div id="toast" class="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Booking successful!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

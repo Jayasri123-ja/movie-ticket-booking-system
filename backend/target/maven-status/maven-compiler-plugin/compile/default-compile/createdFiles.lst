@@ -1,0 +1,9 @@
+com\moviebooking\controller\MovieController.class
+com\moviebooking\model\Show.class
+com\moviebooking\repository\MovieRepository.class
+com\moviebooking\repository\BookingRepository.class
+com\moviebooking\controller\BookingController.class
+com\moviebooking\model\Booking.class
+com\moviebooking\model\Seat.class
+com\moviebooking\model\Movie.class
+com\moviebooking\MovieBookingApplication.class
